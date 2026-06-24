@@ -4,8 +4,8 @@
 
 Memoization with LRU eviction and TTL expiry. `memoize()`, `memoizeAsync()` (deduplicates concurrent calls), and a standalone `LRUCache` class. Zero dependencies, TypeScript-first.
 
-[![npm](https://img.shields.io/npm/v/memokit)](https://www.npmjs.com/package/memokit)
-[![npm downloads](https://img.shields.io/npm/dw/memokit)](https://www.npmjs.com/package/memokit)
+[![npm](https://img.shields.io/npm/v/@billdaddy/memokit)](https://www.npmjs.com/package/@billdaddy/memokit)
+[![npm downloads](https://img.shields.io/npm/dw/@billdaddy/memokit)](https://www.npmjs.com/package/@billdaddy/memokit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## Why memokit?
@@ -23,13 +23,13 @@ Inspired by Python's `functools.lru_cache`, Java's Guava `CacheBuilder`, Go's `r
 ## Install
 
 ```bash
-npm install memokit
+npm install @billdaddy/memokit
 ```
 
 ## Quick start
 
 ```ts
-import { memoize, memoizeAsync } from "memokit";
+import { memoize, memoizeAsync } from "@billdaddy/memokit";
 
 // Memoize fibonacci — cache grows without bound
 const fib = memoize((n: number): number => n <= 1 ? n : fib(n-1) + fib(n-2));
@@ -52,7 +52,7 @@ const [user1, user2] = await Promise.all([getUser("abc"), getUser("abc")]);
 Memoize a synchronous function.
 
 ```ts
-import { memoize } from "memokit";
+import { memoize } from "@billdaddy/memokit";
 
 const expensive = memoize(
   (a: number, b: number) => heavyComputation(a, b),
@@ -79,7 +79,7 @@ Memoize an async function. **Deduplicates concurrent calls** — if two calls wi
 Errors are **not** cached — a rejected promise allows the next call to retry.
 
 ```ts
-import { memoizeAsync } from "memokit";
+import { memoizeAsync } from "@billdaddy/memokit";
 
 const fetchProduct = memoizeAsync(
   async (id: string) => api.getProduct(id),
@@ -105,7 +105,7 @@ const results = await Promise.all(
 The underlying O(1) LRU cache (doubly-linked list + Map). Useful standalone.
 
 ```ts
-import { LRUCache } from "memokit";
+import { LRUCache } from "@billdaddy/memokit";
 
 const cache = new LRUCache<string, User>({ maxSize: 100, ttl: 30_000 });
 

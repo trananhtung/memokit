@@ -1,5 +1,5 @@
 {
-  "name": "memokit",
+  "name": "@billdaddy/memokit",
   "version": "0.1.0",
   "description": "Memoization with LRU eviction and TTL expiry. memoize(), memoizeAsync() (deduplicates concurrent calls), LRUCache class. Zero dependencies, TypeScript.",
   "keywords": [
